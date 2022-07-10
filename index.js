@@ -144,7 +144,12 @@ image: message.attachments.first() ? message.attachments.first().proxyURL : null
 
 
 
-
+process.on('unhandledRejection', (error) => {
+  console.log(error)
+})
+process.on("uncaughtException", (err) => {
+  console.log("Uncaught Exception: " + err);
+})
 
 
 client.login(client.config.token);
